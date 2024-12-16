@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { createContext, useEffect, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -13,6 +13,9 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
 import ProtectedRoute from './components/ProtectedRoute';
+import ToDoComp from './components/ToDoComp';
+import ToDo from './components/ToDo';
+import ToDoUse from './components/ToDoUse';
 
 // class AppCls extends React.Component {
 
@@ -180,46 +183,85 @@ import ProtectedRoute from './components/ProtectedRoute';
 //   )
 // }
 
-function App() {
-  const [isLogged, setIsLogged] = useState(false);
+// function App() {
+//   const [isLogged, setIsLogged] = useState(false);
 
-  const handleLogin = (e) => {
-    setIsLogged(!isLogged);
-  }
+//   const handleLogin = (e) => {
+//     setIsLogged(!isLogged);
+//   }
+//   return (
+//     <>
+//       <h1>Protected Routes</h1>
+//       <Router>
+//         <nav>
+//           <Link to="/">Home</Link> | <Link to="/about">About</Link> | <Link to="/contact">Contact</Link> | <Link to="/blog">Blog</Link>
+//         </nav>
+//         <nav>
+//           <NavLink to="/">Home</NavLink> | <NavLink to="/about">About</NavLink> | <NavLink to="/contact">Contact</NavLink> | <NavLink to="/blog">Blog</NavLink>
+//         </nav>
+
+//         <p>Status: {isLogged.toString()}</p>
+//         {
+//           isLogged
+//             ?
+//               <button id="false" onClick={handleLogin}>Logout</button>
+//             :
+//               <button id="true" onClick={handleLogin}>Login</button>
+//         }
+
+//         <Routes>
+//           {/* <Route element={<ProtectedRoute isLogged={isLogged} />}>
+//             <Route path="/about" element={<AboutPage />} />
+//             <Route path="/blog" element={<BlogPage />} />
+//             <Route path="/contact" element={<ContactPage />} />
+//           </Route> */}
+//           <Route path="/" element={<HomePage />} />
+//           <Route path="/about" element={
+//             <ProtectedComp isLogged={isLogged}>
+//               <AboutPage />
+//             </ProtectedComp>
+//           } />
+//         </Routes>
+//       </Router>
+//     </>
+//   )
+// }
+
+// function App() {
+//   const [parentName, setParentName] = useState("Parent 1");
+
+//   const handleChange = () => {
+//     setParentName("Parent 1 - Updated");
+//   }
+
+//   return (
+//     <>
+//       {/* Controlled vs Uncontrolled */}
+//       {/* Lifting the State Up */}
+
+//       <Comp1 parent={parentName} change={handleChange} />
+//       <Comp2 parent={parentName} />
+
+//       <p><button onClick={handleChange}>Update Parent Name</button></p>
+//     </>
+//   )
+// }
+
+function App() {
+
   return (
     <>
-      <h1>Protected Routes</h1>
-      <Router>
-        <nav>
-          <Link to="/">Home</Link> | <Link to="/about">About</Link> | <Link to="/contact">Contact</Link> | <Link to="/blog">Blog</Link>
-        </nav>
-        <nav>
-          <NavLink to="/">Home</NavLink> | <NavLink to="/about">About</NavLink> | <NavLink to="/contact">Contact</NavLink> | <NavLink to="/blog">Blog</NavLink>
-        </nav>
+      <h1>Redux</h1>
+      {/* install react-redux @reduxjs/toolkit
+      store -> reducer -> actions -> state -> dispatch
+      dispatch
+      */}
+      
+      {/* <ToDoComp /> */}
 
-        <p>Status: {isLogged.toString()}</p>
-        {
-          isLogged
-            ?
-              <button id="false" onClick={handleLogin}>Logout</button>
-            :
-              <button id="true" onClick={handleLogin}>Login</button>
-        }
+      <ToDo />
 
-        <Routes>
-          {/* <Route element={<ProtectedRoute isLogged={isLogged} />}>
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Route> */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={
-            <ProtectedComp isLogged={isLogged}>
-              <AboutPage />
-            </ProtectedComp>
-          } />
-        </Routes>
-      </Router>
+      <ToDoUse />
     </>
   )
 }
