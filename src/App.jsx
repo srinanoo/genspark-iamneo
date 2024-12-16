@@ -16,6 +16,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 import ToDoComp from './components/ToDoComp';
 import ToDo from './components/ToDo';
 import ToDoUse from './components/ToDoUse';
+import ErrorBoundaries from './components/ErrorBoundaries';
+import ErrorComp from './components/ErrorComp';
 
 // class AppCls extends React.Component {
 
@@ -262,6 +264,10 @@ function App() {
       <ToDo />
 
       <ToDoUse />
+
+      <ErrorBoundaries>
+        <ErrorComp />
+      </ErrorBoundaries>
     </>
   )
 }
